@@ -1,13 +1,13 @@
-﻿using Entities.Abstract;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concrete
+namespace Core.Entities
 {
-    public class Category : IEntity 
+    public interface IEntity
     {
+
     }
 }
