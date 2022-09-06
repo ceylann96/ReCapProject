@@ -41,7 +41,7 @@ namespace Business.Concrete
 
         public IResult Add(Car car)
         {
-            if (car.DailyPrice<=0 && car.CarName.Length<2)
+            if (car.DailyPrice <= 0 && car.CarName.Length < 2)
             {
                 return new ErrorResult(Messages.CarNameInvalid);
             }
