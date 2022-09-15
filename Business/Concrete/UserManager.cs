@@ -1,7 +1,7 @@
 ﻿using Business.Abstract;
+using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +39,7 @@ namespace Business.Concrete
 
         public IDataResult<User> GetById(int id)
         {
-            return new SuccessDataResult<User>(_userDal.Get(p => p.UserId == id));
+            return new SuccessDataResult<User>(_userDal.Get(p => p.Id == id));
         }
 
         public IResult Update(User user)
@@ -47,5 +47,17 @@ namespace Business.Concrete
             _userDal.Update(user);
             return new SuccessResult("kullanıcı güncellendi");
         }
+
+        // sonradan eklenen servisler;
+        public List<OperationClaim> GetClaims(User user)
+        {
+            return _userDal.GetClaims(user);
+        }
+        public User GetByMail(string email)
+        {
+            return _userDal.Get(u => u.Email == email);
+        }
+
+
     }
 }

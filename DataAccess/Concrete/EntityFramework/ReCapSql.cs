@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Entities.Concrete;
+using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,10 +19,14 @@ namespace DataAccess.Concrete.EntityFramework
             public DbSet<Car> Carss { get; set; }
             public DbSet<Brand> Brandss { get; set; }
             public DbSet<Color> Colorss { get; set; }
-            public DbSet<User> Userss { get; set; }
             public DbSet<Customer> Customerss { get; set; }
             public DbSet<Rental> Rentalss { get; set; }
             public DbSet<CarImage> CarImagess{ get; set; }
+
+            // CORE KATMANI ENTİTiES
+            public DbSet<OperationClaim> OperationClaimss { get; set; }
+            public DbSet<User> Userss { get; set; }
+            public DbSet<UserOperationClaim> UserOperationClaimss { get; set; }
 
 
 
