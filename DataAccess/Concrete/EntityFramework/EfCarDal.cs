@@ -14,11 +14,12 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, ReCapSql>, ICarDal
     {
-        public List<CarDetailsDto> GetCarDetails()
+        public List<CarDetailsDto> GetCarDetails(Expression<Func<Car, bool>> filter = null)
         {
+
             using (ReCapSql context = new ReCapSql())
             {
-                var result = from c in context.Carss
+                var result = from c in filter is null? context.Carss : context.Carss.Where(filter)
                              join b in context.Brandss
                              on c.BrandId equals b.BrandId
                              join c2 in context.Colorss
